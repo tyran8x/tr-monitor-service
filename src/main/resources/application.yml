@@ -1,0 +1,71 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: monitor-service
+  config:
+    import:
+      - "optional:configserver:http://localhost:8888"
+  security:
+    user:
+      name: admin
+      password: DnictPro@123
+  boot:
+    admin:
+      context-path: /
+      ui:
+        title: 'EGOV APP MANAGEMENT SYSTEM ADMIN'
+        brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>Spring App Management System </span>'
+        available-languages:
+          - en
+        view-settings:
+          - name: 'about'
+            enabled: false
+      notify:
+        mail:
+          to: 'tyran8x@gmail.com'
+          from: 'Egov app management system admin <noreply>'
+
+      client:
+        enabled: true
+        url: http://localhost:9090
+        instance:
+          service-host-type: IP
+          metadata:
+            username: ${spring.boot.admin.client.username}
+            userpassword: ${spring.boot.admin.client.password}
+        username: admin
+        password: DnictPro@123
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: huydq.dnict@gmail.com
+    password: eftagxdgoskixvmc
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+eureka:
+  client:
+    registryFetchIntervalSeconds: 5
+    registerWithEureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://localhost:8061/eureka/
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  endpoint:
+    health:
+      show-details: ALWAYS
+
+logging:
+  level:
+    vn.tr: @logging.level@
+    org.springframework: warn
+  config: classpath:logback.xml
