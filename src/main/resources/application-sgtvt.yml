@@ -3,20 +3,18 @@ server:
 spring:
   application:
     name: monitor-service
-  profiles:
-    active: sgtvt
   config:
     import:
       - "optional:configserver:http://localhost:8888"
   security:
     user:
       name: admin
-      password: DnictPro@123
+      password: SgtvtPro@123
   boot:
     admin:
       context-path: /
       ui:
-        title: 'EGOV APP MANAGEMENT SYSTEM ADMIN'
+        title: 'SGTVT APP MANAGEMENT SYSTEM ADMIN'
         brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>Spring App Management System </span>'
         available-languages:
           - en
@@ -26,7 +24,7 @@ spring:
       notify:
         mail:
           to: 'tyran8x@gmail.com'
-          from: 'Egov app management system admin <noreply>'
+          from: 'SGTVT app management system admin <noreply>'
 
       client:
         enabled: true
@@ -37,14 +35,12 @@ spring:
             username: ${spring.boot.admin.client.username}
             userpassword: ${spring.boot.admin.client.password}
         username: admin
-        password: DnictPro@123
+        password: SgtvtPro@123
   mail:
     host: smtp.gmail.com
     port: 587
     username: huydq.dnict@gmail.com
     password: eftagxdgoskixvmc
-    #username: noreply.dnict@gmail.com
-    #password: fmwiqavmdhhpkohi #bbsjtlsxmgbenkrc #
     properties:
       mail:
         smtp:
