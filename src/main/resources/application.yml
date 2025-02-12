@@ -2,7 +2,7 @@ server:
   port: 9090
 spring:
   application:
-    name: monitor-service
+    name: tr-monitor-service
   profiles:
     active: sgtvt
   config:
@@ -16,8 +16,8 @@ spring:
     admin:
       context-path: /
       ui:
-        title: 'EGOV APP MANAGEMENT SYSTEM ADMIN'
-        brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>Spring App Management System </span>'
+        title: 'SGTVT APP MANAGEMENT SYSTEM ADMIN'
+        brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>SGTVT App Management System </span>'
         available-languages:
           - en
         view-settings:
