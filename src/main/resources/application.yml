@@ -1,23 +1,21 @@
 server:
-  port: 9090
+  port: ${SERVER_PORT:9090}
+  servlet:
+    context-path: /monitor # Fixed from server.context-path
+
 spring:
   application:
     name: tr-monitor-service
-  profiles:
-    active: sgtvt
-  config:
-    import:
-      - "optional:configserver:http://localhost:8888"
   security:
     user:
-      name: admin
-      password: DnictPro@123
+      name: ${SPRING_SECURITY_USER_NAME:admin}
+      password: ${SPRING_SECURITY_USER_PASSWORD:DnictPro@123}
   boot:
     admin:
-      context-path: /
+      context-path: /monitor
       ui:
-        title: 'SGTVT APP MANAGEMENT SYSTEM ADMIN'
-        brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>SGTVT App Management System </span>'
+        title: 'MCDT APP MANAGEMENT SYSTEM ADMIN'
+        brand: '<img src="assets/img/icon spring-boot-admin.svg"><span>Spring App Management System </span>'
         available-languages:
           - en
         view-settings:
@@ -25,39 +23,28 @@ spring:
             enabled: false
       notify:
         mail:
-          to: 'tyran8x@gmail.com'
-          from: 'Egov app management system admin <noreply>'
-
-      client:
-        enabled: true
-        url: http://localhost:9090
-        instance:
-          service-host-type: IP
-          metadata:
-            username: ${spring.boot.admin.client.username}
-            userpassword: ${spring.boot.admin.client.password}
-        username: admin
-        password: DnictPro@123
+          enabled: false # Avoid SMTP issues
+          to: ${NOTIFY_MAIL_TO:tyran8x@gmail.com}
+          from: ${NOTIFY_MAIL_FROM:MCDT app management system admin <noreply>}
   mail:
-    host: smtp.gmail.com
-    port: 587
-    username: huydq.dnict@gmail.com
-    password: eftagxdgoskixvmc
-    #username: noreply.dnict@gmail.com
-    #password: fmwiqavmdhhpkohi #bbsjtlsxmgbenkrc #
+    host: ${MAIL_HOST:smtp.gmail.com}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
     properties:
       mail:
         smtp:
           auth: true
           starttls:
             enable: true
+
 eureka:
   client:
     registryFetchIntervalSeconds: 5
     registerWithEureka: true
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:8061/eureka/
+      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8061/eureka/}
 
 management:
   endpoints:
@@ -67,9 +54,12 @@ management:
   endpoint:
     health:
       show-details: ALWAYS
+  health:
+    mail:
+      enabled: false # Avoid Gmail rate limit
 
 logging:
   level:
-    vn.tr: @logging.level@
+    vn.tr: ${LOGGING_LEVEL:INFO}
     org.springframework: warn
   config: classpath:logback.xml
