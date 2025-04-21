@@ -1,7 +1,7 @@
 server:
   port: ${SERVER_PORT:9090}
   servlet:
-    context-path: /monitor
+    context-path: /
 
 spring:
   config:
@@ -14,7 +14,7 @@ spring:
       password: ${CONFIG_SERVER_PASSWORD:-abc@123}
   boot:
     admin:
-      context-path: /monitor
+      context-path: /
   mail:
     username: ${MAIL_USERNAME}
     password: ${MAIL_PASSWORD}
