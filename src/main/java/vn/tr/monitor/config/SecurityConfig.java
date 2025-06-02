@@ -10,34 +10,34 @@ import org.springframework.security.config.annotation.web.configurers.AbstractHt
 import org.springframework.security.config.annotation.web.configurers.HeadersConfigurer;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.servlet.util.matcher.PathPatternRequestMatcher;
 
 @EnableWebSecurity
 @Configuration
 public class SecurityConfig {
-
+	
 	private final String adminContextPath;
-
+	
 	public SecurityConfig(AdminServerProperties adminServerProperties) {
 		this.adminContextPath = adminServerProperties.getContextPath();
 	}
-
+	
 	@Bean
 	public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
 		SavedRequestAwareAuthenticationSuccessHandler successHandler = new SavedRequestAwareAuthenticationSuccessHandler();
 		successHandler.setTargetUrlParameter("redirectTo");
 		successHandler.setDefaultTargetUrl(adminContextPath + "/");
-
+		
 		return httpSecurity
 				.headers((header) ->
 						header.frameOptions(HeadersConfigurer.FrameOptionsConfig::disable))
 				.authorizeHttpRequests((authorize) ->
 						authorize.requestMatchers(
-										new AntPathRequestMatcher(adminContextPath + "/assets/**"),
-										new AntPathRequestMatcher(adminContextPath + "/actuator/**"),
-										new AntPathRequestMatcher(adminContextPath + "/instances/**"),
-										new AntPathRequestMatcher(adminContextPath + "/login")
-								).permitAll()
+										PathPatternRequestMatcher.withDefaults().matcher(adminContextPath + "/assets/**"),
+										PathPatternRequestMatcher.withDefaults().matcher(adminContextPath + "/actuator/**"),
+										PathPatternRequestMatcher.withDefaults().matcher(adminContextPath + "/instances/**"),
+										PathPatternRequestMatcher.withDefaults().matcher(adminContextPath + "/login")
+						                         ).permitAll()
 								.anyRequest().authenticated())
 				.formLogin((formLogin) ->
 						formLogin.loginPage(adminContextPath + "/login").successHandler(successHandler))
@@ -47,5 +47,5 @@ public class SecurityConfig {
 				.csrf(AbstractHttpConfigurer::disable)
 				.build();
 	}
-
+	
 }
