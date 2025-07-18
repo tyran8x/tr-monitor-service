@@ -12,7 +12,7 @@
 
     <artifactId>tr-monitor-service</artifactId>
     <packaging>jar</packaging>
-    <name>Monitor Service</name>
+    <name>tr-monitor-service</name>
     <description>Monitor service</description>
 
     <dependencies>
@@ -66,7 +66,7 @@
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>
-        
+
     </dependencies>
 
     <build>
