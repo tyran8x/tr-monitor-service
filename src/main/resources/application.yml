@@ -38,14 +38,6 @@ spring:
           starttls:
             enable: true
 
-eureka:
-  client:
-    registryFetchIntervalSeconds: 5
-    registerWithEureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: ${EUREKA_SERVER_URL:http://localhost:8061/eureka/}
-
 management:
   endpoints:
     web:

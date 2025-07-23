@@ -4,14 +4,6 @@ server:
     context-path: /
 
 spring:
-  config:
-    import:
-      - "optional:configserver:${CONFIG_SERVER_URL:http://mcdt-config:8888}"
-  cloud:
-    config:
-      uri: http://mcdt-config:8888
-      username: ${CONFIG_SERVER_USERNAME:-huydq}
-      password: ${CONFIG_SERVER_PASSWORD:-abc@123}
   boot:
     admin:
       context-path: /
@@ -19,7 +11,3 @@ spring:
     username: ${MAIL_USERNAME}
     password: ${MAIL_PASSWORD}
 
-eureka:
-  client:
-    service-url:
-      defaultZone: ${EUREKA_SERVER_URL:http://mcdt-eureka:8061/eureka/}
