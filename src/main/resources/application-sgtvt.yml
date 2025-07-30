@@ -39,8 +39,8 @@ spring:
   mail:
     host: smtp.gmail.com
     port: 587
-    username: huydq.dnict@gmail.com
-    password: eftagxdgoskixvmc
+    username: noreply.dnict@gmail.com
+    password: fmwiqavmdhhpkohi #bbsjtlsxmgbenkrc #
     properties:
       mail:
         smtp:
