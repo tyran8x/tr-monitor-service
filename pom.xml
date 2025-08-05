@@ -76,7 +76,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>vn.tr.monitor.MonitorServiceApplication</mainClass>
+                    <mainClass>vn.tr.monitor.TrMonitorServiceApplication</mainClass>
                 </configuration>
             </plugin>
             <plugin>
