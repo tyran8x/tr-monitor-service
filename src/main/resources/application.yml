@@ -54,4 +54,4 @@ logging:
   level:
     vn.tr: ${LOGGING_LEVEL:INFO}
     org.springframework: warn
-  config: classpath:logback.xml
+  config: classpath:logback-spring.xml
