@@ -7,8 +7,7 @@ spring:
   application:
     name: tr-monitor-service
   config:
-    import:
-      - "optional:configserver:http://localhost:8888"
+    import: "optional:configserver:${SPRING_CLOUD_CONFIG_URI:http://localhost:8888}"
   security:
     user:
       name: ${SPRING_SECURITY_USER_NAME:admin}
