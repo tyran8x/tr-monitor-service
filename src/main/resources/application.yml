@@ -28,6 +28,13 @@ spring:
           enabled: false # Avoid SMTP issues
           to: ${NOTIFY_MAIL_TO:tyran8x@gmail.com}
           from: ${NOTIFY_MAIL_FROM:MCDT app management system admin <noreply>}
+        telegram:
+          enabled: true
+          chat-id: ${TELEGRAM_CHAT_ID:-1003054884531}
+          auth-token: ${TELEGRAM_AUTH_TOKEN:8423245923:AAFHSTIpl6A5vsbkRbYDMqkPw73t5PKP34E}
+          parse-mode: HTML
+          disable-notify: false
+
   mail:
     host: ${MAIL_HOST:smtp.gmail.com}
     port: ${MAIL_PORT:587}
@@ -39,6 +46,12 @@ spring:
           auth: true
           starttls:
             enable: true
+
+telegram:
+  bot:
+    token: "8423245923:AAFHSTIpl6A5vsbkRbYDMqkPw73t5PKP34E"
+    chat-id: "1001217744693"
+    username: "@TrSBABot"
 
 management:
   endpoints:
@@ -54,6 +67,8 @@ management:
 
 logging:
   level:
-    vn.tr: ${LOGGING_LEVEL:INFO}
-    org.springframework: warn
+    vn.tr: ${LOGGING_LEVEL_VN_TR:INFO}
+    org.springframework: ${LOGGING_LEVEL_SPRINGFRAMEWORK:WARN}
   config: classpath:logback-spring.xml
+  file:
+    name: ${LOG_PATH:/opt/logs}/${spring.application.name:tr-monitor-service}/sys-info.log

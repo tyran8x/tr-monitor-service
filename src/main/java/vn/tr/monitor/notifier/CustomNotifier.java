@@ -14,11 +14,11 @@ import static de.codecentric.boot.admin.server.domain.values.StatusInfo.*;
 @Slf4j
 @Component
 public class CustomNotifier extends AbstractEventNotifier {
-
-	protected CustomNotifier(InstanceRepository repository) {
+	
+	public CustomNotifier(InstanceRepository repository) {
 		super(repository);
 	}
-
+	
 	@Override
 	@SuppressWarnings("all")
 	protected Mono<Void> doNotify(InstanceEvent event, Instance instance) {
@@ -37,8 +37,11 @@ public class CustomNotifier extends AbstractEventNotifier {
 					case STATUS_UNKNOWN -> "STATUS UNKNOWN";
 					default -> "UNKNOWN STATUS";
 				};
-				log.info("Instance Status Change: Status name [{}], registration name [{}], instance ID [{}], status [{}], service URL [{}]",
+				String message = String.format(
+						"Instance Status Change: Status name [%s], registration name [%s], instance ID [%s], status [%s], service URL [%s]",
 						statusName, registName, instanceId, status, serviceUrl);
+				
+				log.info(message);
 			}
 		});
 	}
