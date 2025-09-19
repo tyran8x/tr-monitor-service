@@ -6,17 +6,24 @@
     <parent>
         <groupId>io.github.tyran8x</groupId>
         <artifactId>tr-pro-app</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
         <relativePath/>
     </parent>
 
     <artifactId>tr-monitor-service</artifactId>
     <packaging>jar</packaging>
+    <version>${revision}</version>
     <name>tr-monitor-service</name>
     <description>Monitor service</description>
 
-    <dependencies>
+    <properties>
+        <revision>1.0.2</revision>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>21</java.version>
+    </properties>
 
+    <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -27,6 +34,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
@@ -112,7 +120,7 @@
                     <plugin>
                         <groupId>org.apache.maven.plugins</groupId>
                         <artifactId>maven-javadoc-plugin</artifactId>
-                        <version>3.11.2</version>
+                        <version>3.11.3</version>
                         <executions>
                             <execution>
                                 <id>attach-javadocs</id>
