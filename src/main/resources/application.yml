@@ -16,7 +16,7 @@ spring:
     admin:
       context-path: /
       ui:
-        title: 'MCDT APP MANAGEMENT SYSTEM ADMIN'
+        title: 'APP MANAGEMENT SYSTEM ADMIN'
         brand: '<img src="assets/img/icon spring-boot-admin.svg"><span>Spring App Management System </span>'
         available-languages:
           - en
