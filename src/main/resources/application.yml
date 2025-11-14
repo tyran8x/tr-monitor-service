@@ -17,7 +17,7 @@ spring:
       context-path: /
       ui:
         title: 'APP MANAGEMENT SYSTEM ADMIN'
-        brand: '<img src="assets/img/icon spring-boot-admin.svg"><span>Spring App Management System </span>'
+        brand: '<img src="assets/img/icon-spring-boot-admin.svg"><span>Spring App Management System </span>'
         available-languages:
           - en
         view-settings:
