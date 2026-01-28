@@ -6,20 +6,20 @@
     <parent>
         <groupId>io.github.tyran8x</groupId>
         <artifactId>tr-pro-app</artifactId>
-        <version>1.0.15</version>
+        <version>2.0.0</version>
         <relativePath/>
     </parent>
 
     <artifactId>tr-monitor-service</artifactId>
     <packaging>jar</packaging>
-    <version>${revision}</version>
     <name>tr-monitor-service</name>
     <description>Monitor service</description>
 
     <properties>
-        <revision>1.0.15</revision>
+        <revision>2.0.0</revision>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
         <java.version>21</java.version>
         <maven.deploy.skip>true</maven.deploy.skip>
     </properties>
@@ -28,17 +28,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                    <groupId>org.springframework.boot</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-undertow</artifactId>
         </dependency>
 
         <dependency>
